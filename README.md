@@ -89,7 +89,7 @@ std::string s5(5, 'X');            // "XXXXX"
 
 ### Useful Examples
 ```cpp
-  // Find Size
+  // size_t used for operating with size
   size_t pos = text.find("world");
     if (pos != std::string::npos) {
         std::cout << "Found at index: " << pos << std::endl;
