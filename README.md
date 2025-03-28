@@ -87,6 +87,17 @@ std::string s5(5, 'X');            // "XXXXX"
 | `std::stoi(s)`, `std::stoll(s)` | Convert string to numeric types | O(n) |
 | `std::to_string(val)` | Convert numeric to string | O(log n) |
 
+### Useful Examples
+```cpp
+  // Find Size
+  size_t pos = text.find("world");
+    if (pos != std::string::npos) {
+        std::cout << "Found at index: " << pos << std::endl;
+    } else {
+        std::cout << "Not found" << std::endl;
+    }
+```
+
 ### 2.2 String Streams
 > String streams provide an easy way to perform string conversions and formatting, similar to Java's StringBuffer:
 ```cpp
