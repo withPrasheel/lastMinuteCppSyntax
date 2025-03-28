@@ -378,19 +378,20 @@ Header: `<algorithm>` (and `<functional>` for standard function objects).
 
 ### 8.1 Common Functions
 > Frequently used algorithms and their time complexities:
+
 | Algorithm | Description | Time Complexity |
 |-----------|-------------|-----------------|
-| `std::sort(v.begin(), v.end())` | Sort in ascending order | O(n log n) |
-| `std::sort(v.begin(), v.end(), cmp)` | Sort with custom comparator | O(n log n) |
-| `std::binary_search(v.begin(), v.end(), val)` | Check if value exists in sorted range | O(log n) |
-| `std::find(v.begin(), v.end(), val)` | Linear search for value | O(n) |
-| `std::remove(v.begin(), v.end(), val)` | "Remove" by shifting (use with erase) | O(n) |
-| `std::remove_if(v.begin(), v.end(), pred)` | Remove elements satisfying predicate | O(n) |
-| `std::accumulate(v.begin(), v.end(), initVal)` | Sum or fold range | O(n) |
-| `std::for_each(v.begin(), v.end(), func)` | Apply function to each element | O(n) |
-| `std::reverse(v.begin(), v.end())` | Reverse elements in range | O(n) |
-| `std::unique(v.begin(), v.end())` | Remove consecutive duplicates | O(n) |
-| `std::lower_bound(v.begin(), v.end(), val)` | First position for insertion | O(log n) for random access |
+| `std::sort(v.begin(), v.end())` | Sorts in ascending order | O(n log n) |
+| `std::sort(v.begin(), v.end(), cmp)` | Sorts using a custom comparator | O(n log n) |
+| `std::binary_search(v.begin(), v.end(), val)` | Checks if value exists in a sorted range | O(log n) |
+| `std::find(v.begin(), v.end(), val)` | Performs a linear search for a value | O(n) |
+| `std::remove(v.begin(), v.end(), val)` | "Removes" elements by shifting (use with `erase`) | O(n) |
+| `std::remove_if(v.begin(), v.end(), pred)` | Removes elements that satisfy a predicate | O(n) |
+| `std::accumulate(v.begin(), v.end(), initVal)` | Computes the sum (or folds a range) | O(n) |
+| `std::for_each(v.begin(), v.end(), func)` | Applies a function to each element | O(n) |
+| `std::reverse(v.begin(), v.end())` | Reverses elements in a range | O(n) |
+| `std::unique(v.begin(), v.end())` | Removes consecutive duplicate elements | O(n) |
+| `std::lower_bound(v.begin(), v.end(), val)` | Finds the first position where `val` can be inserted without violating order | O(log n) for random-access containers |
 
 ```cpp
 // Example of custom sort with lambda
