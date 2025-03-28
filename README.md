@@ -87,19 +87,6 @@ std::string s5(5, 'X');            // "XXXXX"
 | `std::stoi(s)`, `std::stoll(s)` | Convert string to numeric types | O(n) |
 | `std::to_string(val)` | Convert numeric to string | O(log n) |
 
-- `s.size()`, `s.length()`: returns length (O(1))
-- `s.empty()`: checks if empty (O(1))
-- `s.clear()`: clears the contents (O(n))
-- `s.push_back(char c)`, `s.pop_back()`: add/remove end char (O(1) amortized)
-- `s.append(const std::string&)`: append string (O(m))
-- `s += otherString`: concatenation (O(m))
-- `s.substr(pos, count)`: substring from pos of length count (O(count))
-- `s.find(str, pos)`: find substring, returns std::string::npos if not found (O(n*m) worst-case)
-- `s.replace(pos, len, str)`: replace portion [pos, pos+len) with str (O(n + m))
-- `s.insert(pos, str)`: insert str at position pos (O(n + m))
-- `s.erase(pos, len)`: erase len chars starting at pos (O(n))
-- `std::stoi(s)`, `std::stoll(s)`, `std::to_string(val)`: convert between string & numeric
-
 ### 2.2 String Streams
 > String streams provide an easy way to perform string conversions and formatting, similar to Java's StringBuffer:
 ```cpp
