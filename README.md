@@ -55,6 +55,16 @@ switch (value) {
 - Expression must be integral or enum type
 - Each case label must be a constant expression
 
+## Conversion 
+| Function | Description |
+|----------|-------------|
+|`std::to_string()`| - convert to string |
+|`std::stri(string)`| - string to int |
+|`std::strd(string)`| - string to double |
+|`std::strf(string)`| - string to float |
+|`std::strl(string)`| - string to long |
+
+
 ## 2. Strings in C++
 
 > C++ provides robust string handling through the `std::string` class, offering numerous manipulation functions.
