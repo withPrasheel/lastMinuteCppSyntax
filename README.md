@@ -364,6 +364,32 @@ maxPQ.pop();
 // Min-heap version:
 std::priority_queue<int, std::vector<int>, std::greater<int>> minPQ;
 ```
+> Case for custom class with custom comparator
+```cpp
+struct Item {
+    std::string name;
+    int value;
+    
+    Item(const std::string& name, int value) : name(name), value(value) {}
+};
+
+// For max heap (highest value first, then alphabetically)
+auto comp = [](const Item& a, const Item& b) {
+    if (a.value != b.value)
+        return a.value < b.value;  // Higher value has higher priority
+    return a.name > b.name;        // Alphabetically first has higher priority
+};
+
+std::priority_queue<Item, std::vector<Item>, decltype(comp)> pq(comp);
+
+// Example usage
+pq.push({"apple", 5});
+pq.push({"banana", 3});
+pq.push({"cherry", 5});
+
+// Top element will be {"apple", 5} because of same value but alphabetically first
+```
+
 
 ### 7.3 Stack (LIFO)
 > Last-in, first-out data structure:
