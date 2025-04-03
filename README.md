@@ -938,3 +938,78 @@ void dijkstra(int start, std::vector<std::vector<std::pair<int, int>>>& graph) {
 | `std::priority_queue<T>` | `.push()`, `.pop()`, `.top()` | Heap-based priority queue |
 
 Typical Execution Speed: C++ solutions often handle ~10^8 operations/second in competitive programming.
+
+## 17. Data Structure Examples
+### 17.1 Trie Data structure
+```cpp
+#include <iostream>
+#include <string>
+using namespace std;
+
+class Trie {
+private:
+    struct TrieNode {
+        TrieNode* children[26];
+        bool isEndOfWord;
+
+        TrieNode() {
+            for (int i = 0; i < 26; ++i)
+                children[i] = nullptr;
+            isEndOfWord = false;
+        }
+    };
+
+    TrieNode* root;
+
+public:
+    Trie() {
+        root = new TrieNode();
+    }
+
+    void insert(const string& word) {
+        TrieNode* node = root;
+        for (char c : word) {
+            int index = c - 'a';
+            if (node->children[index] == nullptr)
+                node->children[index] = new TrieNode();
+            node = node->children[index];
+        }
+        node->isEndOfWord = true;
+    }
+
+    bool search(const string& word) {
+        TrieNode* node = root;
+        for (char c : word) {
+            int index = c - 'a';
+            if (node->children[index] == nullptr)
+                return false;
+            node = node->children[index];
+        }
+        return node->isEndOfWord;
+    }
+
+    bool startsWith(const string& prefix) {
+        TrieNode* node = root;
+        for (char c : prefix) {
+            int index = c - 'a';
+            if (node->children[index] == nullptr)
+                return false;
+            node = node->children[index];
+        }
+        return true;
+    }
+};
+
+int main() {
+    Trie trie;
+    trie.insert("apple");
+    cout << boolalpha << trie.search("apple") << endl;   // true
+    cout << boolalpha << trie.search("app") << endl;     // false
+    cout << boolalpha << trie.startsWith("app") << endl; // true
+    trie.insert("app");
+    cout << boolalpha << trie.search("app") << endl;     // true
+    return 0;
+}
+
+
+```
