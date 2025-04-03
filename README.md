@@ -59,10 +59,10 @@ switch (value) {
 | Function | Description |
 |----------|-------------|
 |`std::to_string()`| - convert to string |
-|`std::stri(string)`| - string to int |
-|`std::strd(string)`| - string to double |
-|`std::strf(string)`| - string to float |
-|`std::strl(string)`| - string to long |
+|`std::stoi(string)`| - string to int |
+|`std::stod(string)`| - string to double |
+|`std::stof(string)`| - string to float |
+|`std::stol(string)`| - string to long |
 
 
 ## 2. Strings in C++
