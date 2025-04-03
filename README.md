@@ -1013,3 +1013,75 @@ int main() {
 
 
 ```
+
+### Graph data structure
+```cpp
+#include <iostream>
+#include <vector>
+using namespace std;
+
+class Node {
+public:
+    int id;
+    vector<Node*> neighbors;
+
+    Node(int id) {
+        this->id = id;
+    }
+
+    void addNeighbor(Node* neighbor) {
+        neighbors.push_back(neighbor);
+    }
+};
+
+class Graph {
+private:
+    vector<Node*> nodes;
+
+    void dfsUtil(Node* node, vector<bool>& visited) {
+        visited[node->id] = true;
+        cout << node->id << " ";
+
+        for (Node* neighbor : node->neighbors) {
+            if (!visited[neighbor->id])
+                dfsUtil(neighbor, visited);
+        }
+    }
+
+public:
+    Graph(int numNodes) {
+        for (int i = 0; i < numNodes; ++i)
+            nodes.push_back(new Node(i));
+    }
+
+    void addEdge(int u, int v) {
+        nodes[u]->addNeighbor(nodes[v]);
+        nodes[v]->addNeighbor(nodes[u]); // Remove for directed graph
+    }
+
+    void DFS(int startId) {
+        vector<bool> visited(nodes.size(), false);
+        dfsUtil(nodes[startId], visited);
+    }
+
+    ~Graph() {
+        for (Node* node : nodes)
+            delete node;
+    }
+};
+
+int main() {
+    Graph g(6);
+    g.addEdge(0, 1);
+    g.addEdge(0, 2);
+    g.addEdge(1, 3);
+    g.addEdge(1, 4);
+    g.addEdge(2, 5);
+
+    cout << "DFS starting from node 0:\n";
+    g.DFS(0);
+
+    return 0;
+}
+
+```
